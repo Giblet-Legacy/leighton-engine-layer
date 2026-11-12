@@ -9,8 +9,23 @@ Function:
     the complete parameter set so the result is reproducible.
 
 Layer:    P14 — Leighton Engine
-Depends:  P10 Weight, P11 Trust
+Depends:  P10 Weight, P11 Trust (leighton_engine_v2.py needs
+          weight_v2.py P10 v1.1.0 and trust_v2.py P11 v1.1.0)
 Consumed: P15 HAL, P12 Rules, The Cockpit
 Licence:  MSL-1.0
 Author:   James Gilbert (Giblets Forge)
-Status:   0.0.0-dev (in build, pre-freeze)
+Status:   1.1.0 (v1 frozen at 1.0.0; V2 hardening layer added)
+
+Files:
+    leighton_engine.py                  — v1.0.0, frozen. Latest observation
+                                          wins. (SPEC.md)
+    leighton_engine_v2.py               — V2 layer: weighted fusion, domain
+                                          registry, version-dispatching
+                                          reproduce. (SPEC_V2.md)
+    leighton_parameters_v2.schema.json  — JSON Schema for the V2
+                                          parameters block.
+    conftest.py                         — puts ../weight-layer and
+                                          ../trust-layer on sys.path for pytest.
+
+Expects weight-layer and trust-layer checked out as sibling directories
+(../weight-layer, ../trust-layer). Run `pytest -q` from any directory.

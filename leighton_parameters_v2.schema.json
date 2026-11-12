@@ -1,0 +1,59 @@
+{
+  "$comment": "leighton_parameters_v2.schema.json — JSON Schema for the P14 Leighton Engine V2 (1.1.0) parameters block. Function: formally defines the provenance object returned by leighton_engine_v2.compute_lambda so any implementation can check it before reproducing lambda. Cross-field rules a schema cannot express (observation_count, latest_observation_timestamp, fusion_formula vs fusion_rule) are enforced by leighton_engine_v2.validate_parameters. See SPEC_V2.md section 4.",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Giblet-Legacy/leighton-engine-layer/leighton_parameters_v2.schema.json",
+  "title": "P14 Leighton Engine parameters (1.1.0)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "algorithm",
+    "version",
+    "formula",
+    "fusion_rule",
+    "fusion_formula",
+    "k",
+    "reference_time",
+    "latest_observation_timestamp",
+    "observation_count",
+    "computed_at",
+    "domain",
+    "observations"
+  ],
+  "properties": {
+    "algorithm": { "const": "leighton-engine" },
+    "version": { "const": "1.1.0" },
+    "formula": { "const": "λ(t) = 1.00 + (λ₀ − 1.00) × e^(−kt)" },
+    "fusion_rule": { "enum": ["weighted", "latest"] },
+    "fusion_formula": {
+      "enum": [
+        "λ = 1.00 + Σ wᵢ(λᵢ − 1.00) / Σ wᵢ, wᵢ = cᵢ × e^(−kΔtᵢ)",
+        "λ₀ = value of the latest observation"
+      ]
+    },
+    "k": { "type": "number", "minimum": 1e-9, "maximum": 1e9 },
+    "reference_time": { "type": "number" },
+    "latest_observation_timestamp": { "type": "number" },
+    "observation_count": { "type": "integer", "minimum": 1 },
+    "computed_at": { "type": "number" },
+    "domain": {
+      "oneOf": [
+        { "type": "null" },
+        { "type": "string", "minLength": 1 }
+      ]
+    },
+    "observations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["timestamp", "value", "confidence"],
+        "properties": {
+          "timestamp": { "type": "number" },
+          "value": { "type": "number", "exclusiveMinimum": 0 },
+          "confidence": { "type": "number", "minimum": 0, "maximum": 1 }
+        }
+      }
+    }
+  }
+}

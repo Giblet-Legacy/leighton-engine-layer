@@ -2,6 +2,22 @@
 
 CHANGELOG.md — build history for P14 Leighton Engine, latest entry at top.
 
+## [Unreleased]
+
+### Good
+
+- `SPEC_V3.md`, `test_leighton_engine_v3.py` (10 tests, run red first) and `leighton_engine_v3.py` (1.2.0): `time_unit` is a required, recorded argument. Callers pass epoch seconds; V3 converts and delegates every calculation to V2. Stack convention recorded: `STACK_TIME_UNIT = "days"`, `STACK_CLAIM_K = 0.1`. 122/122 pass.
+- Closes the gap the Weaver found (the-weaver NOTES): the Weaver and the Echo used days, the Cockpit used seconds, so `forge trust` always returned 1.00 (pinned in test 5).
+- Built on James's delegation ("fix all 11 issues"). Not frozen (NOTES Q1).
+
+### Bad
+
+- (none)
+
+### Ugly
+
+- V3's parameter block keeps V2's shape, so the unit lives beside it in the result, not inside it. reproduce_lambda does not need it; an auditor reading the block alone must take the unit from the result.
+
 ## [v1.1.0] — 2026-11-12
 
 ### Good

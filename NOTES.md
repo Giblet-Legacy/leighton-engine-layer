@@ -3,12 +3,18 @@
 NOTES.md — open questions, divergences and decisions for P14 Leighton Engine.
 
 ## Open questions
-- (none)
+- **Q1 — Freeze V3 at 1.2.0?** Built and green on the laptop
+  (122/122). Not yet run on the S24. Raised 2026-11-13. Owner: James.
 
 ## Divergences from v1.2.1 specification
 - (none)
 
 ## Decisions
+- 2026-11-13 — V3 (SPEC_V3.md) makes the time unit required and
+  recorded. Stack convention: k per day, 0.1 for claims (the Weaver's
+  choice, the-weaver NOTES). Timestamps stay epoch seconds in every
+  store; P14 converts. Decided by the VS Code AI on James's delegation
+  ("fix all 11 issues").
 - P14 returns a dict, not a float. The extra data (parameters set)
   is the whole point of P14 over P11. It makes λ reproducible from
   the output alone.

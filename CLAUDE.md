@@ -14,6 +14,7 @@ Every function MUST have a numbered header.
 
 ## P14 Architecture Specifics
 - Depends on `weight` (P10) and `trust` (P11).
+- Current layer: `leighton_engine_v3.py` (SPEC_V3.md, built, not frozen). `time_unit` is required; timestamps are epoch seconds; stack convention is k per day (`STACK_CLAIM_K = 0.1`). New code imports `leighton_engine_v3`.
 - Canonical λ computation from an observation stream.
 - Returns the λ value PLUS all parameters used, so results are reproducible.
 - Same evidence + same parameters MUST produce same λ.

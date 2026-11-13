@@ -16,7 +16,7 @@ Licence:  MSL-1.0
 Author:   James Gilbert (Giblets Forge)
 Status:   1.1.0 (v1 frozen at 1.0.0; V2 hardening layer added).
           V3 time-unit layer (leighton_engine_v3.py, SPEC_V3.md, 1.2.0)
-          built, not frozen. New code imports leighton_engine_v3.
+          frozen. New code imports leighton_engine_v3.
 
 Files:
     leighton_engine.py                  — v1.0.0, frozen. Latest observation

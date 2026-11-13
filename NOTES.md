@@ -3,7 +3,7 @@
 NOTES.md — open questions, divergences and decisions for P14 Leighton Engine.
 
 ## Open questions
-- **Q1 — Freeze V3 at 1.2.0?** **Resolved 2026-11-13 — James: "freeze all".** Frozen on the laptop run; the S24 run is still to be confirmed. Built and green on the laptop
+- **Q1 — Freeze V3 at 1.2.0?** **Resolved 2026-11-13 — James: "freeze all".** Frozen on the laptop run; confirmed on the S24 by James, 2026-11-13. Built and green on the laptop
   (122/122). Not yet run on the S24. Raised 2026-11-13. Owner: James.
 
 ## Divergences from v1.2.1 specification

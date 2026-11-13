@@ -26,7 +26,7 @@ CHANGELOG.md — build history for P14 Leighton Engine, latest entry at top.
 
 ### Bad
 
-- Frozen on the laptop run alone (2026-11-13); the S24 run is still to be confirmed.
+- Frozen on the laptop run alone (2026-11-13); confirmed on the S24 by James, 2026-11-13.
 
 ### Ugly
 
